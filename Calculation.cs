@@ -18,8 +18,10 @@ namespace OmSULab
                     "Введите новое значение аргумента х: ");
                 argX = CIOUtils.dSafeRead();
             }
+
             Console.Write("Введите аргумент y: ");
             double argY = CIOUtils.dSafeRead();
+
             Console.Write("Введите аргумент z: ");
             double argZ = CIOUtils.dSafeRead();
             while (argZ == 0)
@@ -27,7 +29,9 @@ namespace OmSULab
                 Console.Write("Деление на 0 невозможно\nВведите новое значение аргумента z: ");
                 argZ = CIOUtils.dSafeRead();
             }
-            double dResult; dResult = (argY - Math.Sqrt(argX)) / argZ;
+
+            double dResult;
+            dResult = (argY - Math.Sqrt(argX)) / argZ;
             Console.WriteLine(Math.Round(dResult, 3));
             return 0;
         }

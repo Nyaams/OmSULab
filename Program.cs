@@ -6,10 +6,12 @@ using System.Threading.Tasks;
 
 namespace OmSULab
 {
-    internal class Program
+    internal class CProgram
     {
         static void Main(string[] args)
         {
+            CMenu.Summon();
+            return;
         }
     }
 }

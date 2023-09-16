@@ -31,6 +31,11 @@ namespace OmSULab
                         Console.WriteLine("Нажмите клавишу Enter чтобы вернуться");
                         Console.ReadLine();
                         break;
+                    case 3:
+                        Console.Clear();
+                        CRecursiveCalculator.iDateRequest();
+                        Console.ReadLine();
+                        break;
                     default:
                         Console.Clear();
                         Console.WriteLine("Данного значения нет в меню.");
@@ -47,6 +52,7 @@ namespace OmSULab
             Console.WriteLine("[0] Exit");
             Console.WriteLine("[1] Hello World!");
             Console.WriteLine("[2] Calc: (Y-sqrt(X))/Z");
+            Console.WriteLine("[3] Recursion date");
             int iMenuValue = CIOUtils.iSafeRead();
             return iMenuValue;
         }

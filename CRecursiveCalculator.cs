@@ -16,21 +16,18 @@ namespace OmSULab
             Console.Write("Введите количество вводимых дат: ");
             int iLimitDates = CIOUtils.iSafeRead();
             DateTime[] inputDate = new DateTime[iLimitDates + 1];
-            if (iLimitDates % 2 == 0)
-            {
-                for (int i = 0; i < iLimitDates; i++)
-                {
-                    Console.Write($"Введите {i+1} дату в формате (дд.мм.гггг): ");
-                    inputDate[i] = CIOUtils.dtSafeRead();
-                    Console.WriteLine(inputDate[i].ToShortDateString());
-                }
-            }
-            else
+            while (iLimitDates % 2 != 0)
             {
                 Console.Write("Количество дат должно быть чётным.\n" +
                     "Введите количество снова: ");
                 iLimitDates = CIOUtils.iSafeRead();
-            }      
+            }
+            for (int i = 0; i < iLimitDates; i++)
+            {
+                Console.Write($"Введите {i + 1} дату в формате (дд.мм.гггг): ");
+                inputDate[i] = CIOUtils.dtSafeRead();
+                Console.WriteLine(inputDate[i].ToShortDateString());
+            }     
             return 0;
         }
     }

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace OmSULab
 {
-    public class CMenu
+    public class Menu
     {
         public static void Summon()
         {
@@ -33,7 +33,8 @@ namespace OmSULab
                         break;
                     case 3:
                         Console.Clear();
-                        CRecursiveCalculator.iDateRequest();
+                        Console.WriteLine("У вас имеется возможность ввести 4 даты.");
+                        CRecursiveCalculator.dDateRequest();
                         Console.WriteLine("Нажмите клавишу Enter чтобы вернуться");
                         Console.ReadLine();
                         break;

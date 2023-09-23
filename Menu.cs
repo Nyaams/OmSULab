@@ -27,13 +27,14 @@ namespace OmSULab
                     case 2:
                         Console.Clear();
                         Console.WriteLine("Вычисление по формуле (y-sqrt(x))/z");
-                        Calculation.dCalculation();
+                        CalculationByTheFormula.dCalculation();
                         Console.WriteLine("Нажмите клавишу Enter чтобы вернуться");
                         Console.ReadLine();
                         break;
                     case 3:
                         Console.Clear();
                         CRecursiveCalculator.iDateRequest();
+                        Console.WriteLine("Нажмите клавишу Enter чтобы вернуться");
                         Console.ReadLine();
                         break;
                     default:

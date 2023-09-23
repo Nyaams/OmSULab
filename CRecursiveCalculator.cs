@@ -12,12 +12,11 @@ namespace OmSULab
 {
     internal class CRecursiveCalculator
     {
-        public static double iDateRequest()
+        public static double dDateRequest()
         {
             int iLimitDates = 4;
             DateTime[] inputDate = new DateTime[iLimitDates + 1];
-
-            Console.WriteLine("У вас имеется возможность ввести 4 даты.");
+            
             for (int i = 0; i < iLimitDates; i++)
             {
                 Console.Write($"Введите {i + 1} дату в формате (дд.мм.гггг): ");
@@ -48,7 +47,7 @@ namespace OmSULab
             Console.WriteLine("Второй отрезок дат: " + inputDate[2].ToShortDateString() +
                               "-" + inputDate[3].ToShortDateString());
 
-            double dSum = 0;
+            double dSum;
             if (inputDate[2] > inputDate[1] ||
                 inputDate[3] < inputDate[0])
             {
@@ -58,26 +57,40 @@ namespace OmSULab
             else if (inputDate[2] > inputDate[0] &&
                      inputDate[3] > inputDate[1])
                 dSum = (inputDate[1] - inputDate[2]).TotalDays + 1;
+            
             else if (inputDate[2] < inputDate[0] &&
                      inputDate[3] < inputDate[1])
                 dSum = (inputDate[3] - inputDate[0]).TotalDays + 1;
+           
             else if (inputDate[2] > inputDate[0] &&
                      inputDate[3] < inputDate[1])
                 dSum = (inputDate[3] - inputDate[0]).TotalDays;
+            
             else if (inputDate[2] > inputDate[0] &&
                      inputDate[3] == inputDate[1])
                 dSum = (inputDate[3] - inputDate[2]).TotalDays + 1;
+            
             else if (inputDate[2] == inputDate[0] &&
                      inputDate[3] < inputDate[1])
                 dSum = (inputDate[3] - inputDate[2]).TotalDays + 1;
+            
             else if (inputDate[2] < inputDate[0] &&
                      inputDate[3] > inputDate[1])
                 dSum = (inputDate[1] - inputDate[0]).TotalDays + 1;
+            
             else dSum = (inputDate[3] - inputDate[0]).TotalDays + 1;
+
+            while (dSum > 170)
+            {
+                Console.WriteLine("Значение аргумента больше 170 и не может быть вычислено за отведенное время.\n" +
+                                  "Введите данные повторно.");
+                return dDateRequest();
+
+            }
 
             var sw = new Stopwatch();
             sw.Start();
-            Console.WriteLine("Factorial(" + dSum + ") = " + CFactorialCalculation.iFactorialCalc(dSum));
+            Console.WriteLine("Factorial(" + dSum + ") = " + CFactorialCalculation.dFactorialCalc(dSum));
             sw.Stop();
             Console.WriteLine($"Время потраченное на вычисление факториала: {sw.Elapsed}");
             return 0;

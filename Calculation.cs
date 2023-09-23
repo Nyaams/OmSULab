@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace OmSULab
 {
-    internal class Calculation
+    internal class CalculationByTheFormula
     {
         public static double dCalculation()
         {
@@ -32,7 +32,7 @@ namespace OmSULab
 
             double dResult;
             dResult = (argY - Math.Sqrt(argX)) / argZ;
-            Console.WriteLine(Math.Round(dResult, 3));
+            Console.WriteLine("(y-√(x))/z = " + Math.Round(dResult, 3));
             return 0;
         }
     }

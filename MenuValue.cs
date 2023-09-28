@@ -8,7 +8,7 @@ namespace OmSULab
 {
     internal class MenuValue
     {
-        public static int iGetMenuValue()
+        private static int iGetMenuValue()
         {
             Console.Clear();
             Console.WriteLine("=== MENU ===");
@@ -18,6 +18,10 @@ namespace OmSULab
             Console.WriteLine("[3] Recursion date");
             int iMenuValue = CIOUtils.iSafeReadForMenu();
             return iMenuValue;
+        }
+        public static int iMenuValue()
+        { 
+            return iGetMenuValue();
         }
     }
 }

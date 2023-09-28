@@ -12,7 +12,7 @@ namespace OmSULab
         {
             while (true)
             {
-                switch (iGetMenuValue())
+                switch (MenuValue.iGetMenuValue())
                 {
                     case 0:
                         Console.WriteLine("Exit");
@@ -20,7 +20,7 @@ namespace OmSULab
                         break;
                     case 1:
                         Console.Clear();
-                        Console.WriteLine("Hello World!");
+                        HelloWorld.Hello();
                         Console.WriteLine("Нажмите клавишу Enter чтобы вернуться");
                         Console.ReadLine();
                         break;
@@ -46,17 +46,6 @@ namespace OmSULab
                         break;
                 }
             }
-        }
-        private static int iGetMenuValue()
-        {
-            Console.Clear();
-            Console.WriteLine("=== MENU ===");
-            Console.WriteLine("[0] Exit");
-            Console.WriteLine("[1] Hello World!");
-            Console.WriteLine("[2] Calc: (Y-sqrt(X))/Z");
-            Console.WriteLine("[3] Recursion date");
-            int iMenuValue = CIOUtils.iSafeRead();
-            return iMenuValue;
         }
     }
 }

@@ -18,6 +18,23 @@ namespace OmSULab
                 if (Int32.TryParse(sValue, out iValue))
                     return iValue;
                 Console.Write("Неверный формат. Введите целочисленное значение: ");
+                
+            }
+        }
+        public static int iSafeReadForMenu()
+        {
+            while (true)
+            {
+                string sValue = Console.ReadLine();
+                if (string.IsNullOrEmpty(sValue))
+                {
+                    Console.Clear();
+                    Menu.Summon();
+                }
+                int iValue;
+                if (Int32.TryParse(sValue, out iValue))
+                    return iValue;
+                Console.Write("Неверный формат. Введите целочисленное значение: ");
             }
         }
         public static double dSafeRead()

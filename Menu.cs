@@ -12,7 +12,7 @@ namespace OmSULab
         {
             while (true)
             {
-                switch (MenuValue.iGetMenuValue())
+                switch (MenuValue.iMenuValue())
                 {
                     case 0:
                         Console.WriteLine("Exit");
@@ -27,14 +27,14 @@ namespace OmSULab
                     case 2:
                         Console.Clear();
                         Console.WriteLine("Вычисление по формуле (y-sqrt(x))/z");
-                        CalculationByTheFormula.dCalculation();
+                        Calculation.dCalculation();
                         Console.WriteLine("Нажмите клавишу Enter чтобы вернуться");
                         Console.ReadLine();
                         break;
                     case 3:
                         Console.Clear();
                         Console.WriteLine("У вас имеется возможность ввести 4 даты.");
-                        RecursiveCalculator.dDateRequest();
+                        FactorialCalculation.dFactorialOutput();
                         Console.WriteLine("Нажмите клавишу Enter чтобы вернуться");
                         Console.ReadLine();
                         break;

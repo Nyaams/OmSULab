@@ -5,6 +5,7 @@ using System.Globalization;
 using System.Linq;
 using System.Net.NetworkInformation;
 using System.Runtime.InteropServices.WindowsRuntime;
+using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -12,11 +13,10 @@ namespace OmSULab
 {
     internal class RecursiveCalculator
     {
-        public static double dDateRequest()
+        private static int iLimitDates = 4;
+        private static DateTime[] inputDate = new DateTime[iLimitDates + 1];
+        private static double dDateRequest()
         {
-            int iLimitDates = 4;
-            DateTime[] inputDate = new DateTime[iLimitDates + 1];
-            
             for (int i = 0; i < iLimitDates; i++)
             {
                 Console.Write($"Введите {i + 1} дату в формате (дд.мм.гггг): ");
@@ -40,6 +40,11 @@ namespace OmSULab
                               "Введите другое значение конечной даты во втором отрезке: ");
                 inputDate[3] = CIOUtils.dtSafeRead();
             }
+            return 0;
+        }
+        private static double dSum = 0;
+        public static double dDateCalculation()
+        {
             Console.Clear();
             Console.WriteLine("Первый отрезок дат: " + inputDate[0].ToShortDateString() +
                               "-" + inputDate[1].ToShortDateString());
@@ -47,7 +52,6 @@ namespace OmSULab
             Console.WriteLine("Второй отрезок дат: " + inputDate[2].ToShortDateString() +
                               "-" + inputDate[3].ToShortDateString());
 
-            double dSum;
             if (inputDate[2] > inputDate[1] ||
                 inputDate[3] < inputDate[0])
             {
@@ -57,27 +61,27 @@ namespace OmSULab
             else if (inputDate[2] > inputDate[0] &&
                      inputDate[3] > inputDate[1])
                 dSum = (inputDate[1] - inputDate[2]).TotalDays + 1;
-            
+
             else if (inputDate[2] < inputDate[0] &&
                      inputDate[3] < inputDate[1])
                 dSum = (inputDate[3] - inputDate[0]).TotalDays + 1;
-           
+
             else if (inputDate[2] > inputDate[0] &&
                      inputDate[3] < inputDate[1])
                 dSum = (inputDate[3] - inputDate[0]).TotalDays;
-            
+
             else if (inputDate[2] > inputDate[0] &&
                      inputDate[3] == inputDate[1])
                 dSum = (inputDate[3] - inputDate[2]).TotalDays + 1;
-            
+
             else if (inputDate[2] == inputDate[0] &&
                      inputDate[3] < inputDate[1])
                 dSum = (inputDate[3] - inputDate[2]).TotalDays + 1;
-            
+
             else if (inputDate[2] < inputDate[0] &&
                      inputDate[3] > inputDate[1])
                 dSum = (inputDate[1] - inputDate[0]).TotalDays + 1;
-            
+
             else dSum = (inputDate[3] - inputDate[0]).TotalDays + 1;
 
             while (dSum > 170)
@@ -87,13 +91,17 @@ namespace OmSULab
                 return dDateRequest();
 
             }
-
-            var sw = new Stopwatch();
-            sw.Start();
-            Console.WriteLine("Factorial(" + dSum + ") = " + FactorialCalculation.dFactorialCalc(dSum));
-            sw.Stop();
-            Console.WriteLine($"Время потраченное на вычисление факториала: {sw.Elapsed}");
+            return dSum;
+        }
+        public static double dDateMethodsCall()
+        {
+            dDateRequest();
+            dDateCalculation();
             return 0;
+        }
+        public static double dDateResult()
+        {
+            return dSum;
         }
     }
 }

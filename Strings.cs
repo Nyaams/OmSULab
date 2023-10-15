@@ -14,7 +14,7 @@ namespace OmSULab
         {
             return "[4] Strings";
         }
-        static void task4()
+        static void task3()
         {
             Console.WriteLine("Введите первую строку: ");
             string sFirstString = CIOUtils.sSafeRead();            
@@ -91,7 +91,7 @@ namespace OmSULab
         public override void Execute()
         {
             Console.Clear();
-            Strings.task4();
+            Strings.task3();
         }
     }
 }

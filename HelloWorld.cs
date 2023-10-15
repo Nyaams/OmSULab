@@ -6,10 +6,15 @@ using System.Threading.Tasks;
 
 namespace OmSULab
 {
-    internal class HelloWorld
+    internal class HelloWorld : MenuItemCore
     {
-        public static void Hello()
+        public override string GetTitle()
         {
+            return "[1] Hello World!";
+        }
+        public override void Execute()
+        {
+            Console.Clear();
             Console.WriteLine("Привет Мир!");
             Console.WriteLine("Hello World!");            
             Console.WriteLine("Hallo Welt!");

@@ -11,12 +11,12 @@ namespace OmSULab
     {
         static void Main(string[] args)
         {
-            MenuValue.Add(new Exit());
-            MenuValue.Add(new HelloWorld());
-            MenuValue.Add(new Calculation());
-            MenuValue.Add(new FactorialCalculation());
-            MenuValue.Add(new Strings());
-            MenuValue.Start();
+            Menu.Add(new Exit());
+            Menu.Add(new HelloWorld());
+            Menu.Add(new Calculation());
+            Menu.Add(new FactorialCalculation());
+            Menu.Add(new Strings());
+            Menu.Execution();
         }
     }
 }

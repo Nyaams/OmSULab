@@ -26,10 +26,9 @@ namespace OmSULab
             while (true)
             {
                 string sValue = Console.ReadLine();
-                if (string.IsNullOrEmpty(sValue))
+                while (string.IsNullOrEmpty(sValue))
                 {
-                    Console.Clear();
-                    Menu.Summon();
+                    sValue = Console.ReadLine();
                 }
                 int iValue;
                 if (Int32.TryParse(sValue, out iValue))
@@ -61,6 +60,11 @@ namespace OmSULab
                 Console.Write("Вы ввели дату неккоректно, формат ввода (дд.мм.гггг)\n" +
                     "Введите дату заново: ");
             }
+        }
+        public static string sSafeRead()
+        { 
+            string sRead = Console.ReadLine() ?? String.Empty;
+            return sRead;
         }
     }
 }

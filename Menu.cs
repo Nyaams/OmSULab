@@ -8,10 +8,13 @@ namespace OmSULab
 {
     static class Menu
     {
-        static List<MenuItemCore> menuItems = new List<MenuItemCore>();
-        public static int MenuItems
+        static List<MenuItemCore> Items = new List<MenuItemCore>();
+        public static int iMenuItems
         {
-            get { return menuItems.Count; }
+            get 
+            { 
+                return Items.Count;
+            }
         }
         public static void Execution()
         {            
@@ -19,7 +22,7 @@ namespace OmSULab
                 while (true)
                 {
                     Menu.ShowMenu();
-                    menuItems[Menu.iGetMenuValue()].Execute();
+                    Items[Menu.iGetMenuValue()].Execute();
                     Console.Write("Нажмите клавишу Enter чтобы вернуться");
                     Console.ReadKey();
                     Console.Clear();
@@ -28,15 +31,15 @@ namespace OmSULab
         }
         static void ShowMenu()
         {
-            for (int i = 0; i < menuItems.Count; i++)
+            for (int i = 0; i < Items.Count; i++)
             {
-                Console.WriteLine(menuItems[i].GetTitle());
+                Console.WriteLine(Items[i].GetTitle());
             }
         }
         static int iGetMenuValue()
         {
             int iMenuValue = CIOUtils.iSafeReadForMenu();
-            while (iMenuValue < 0 || iMenuValue > menuItems.Count)
+            while (iMenuValue < 0 || iMenuValue > Items.Count)
             {
                     Console.Clear();
                     Console.WriteLine("Пункт меню не найден. Попробуйте еще раз. ");
@@ -44,8 +47,17 @@ namespace OmSULab
             }
             return iMenuValue;
         }
-        public static void Add(MenuItemCore item) { menuItems.Add(item); }
-        public static void Remove(MenuItemCore item) { menuItems.Remove(item); }
-        public static void Clear() { menuItems.Clear(); }
+        public static void Add(MenuItemCore item)
+        {
+            Items.Add(item);
+        }
+        public static void Remove(MenuItemCore item)
+        {
+            Items.Remove(item);
+        }
+        public static void Clear()
+        {
+            Items.Clear();
+        }
     }
 }

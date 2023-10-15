@@ -7,8 +7,12 @@ using System.Threading.Tasks;
 
 namespace OmSULab
 {
-    internal class FactorialCalculation
+    internal class FactorialCalculation : MenuItemCore
     {
+        public override string GetTitle()
+        {
+            return "[3] Recursion date";
+        }
         public static double dFactorialCalc(double n)
         {
             if (n == 0 || n == 1) 
@@ -16,15 +20,15 @@ namespace OmSULab
 
             return n * dFactorialCalc(n - 1);
         }
-        public static double dFactorialOutput()
+        public override void Execute()
         {
+            Console.Clear();
             RecursiveCalculator.dDateMethodsCall();
             var sw = new Stopwatch();
             sw.Start();
             Console.WriteLine("Factorial(" + RecursiveCalculator.dDateResult() + ") = " + dFactorialCalc(RecursiveCalculator.dDateResult()));
             sw.Stop();
             Console.WriteLine($"Время потраченное на вычисление факториала: {sw.Elapsed}");
-            return 0;
         }
     }
 }

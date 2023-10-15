@@ -12,10 +12,10 @@ namespace OmSULab
         {
             return "[2] Calc: (y-√(x))/z";
         }
-        private static double dArgumentX;
-        private static double dArgumentY;
-        private static double dArgumentZ;
-        private static double dCalculationArguments()
+        static double dArgumentX;
+        static double dArgumentY;
+        static double dArgumentZ;
+        static double dCalculationArguments()
         {
             Console.Write("Введите аргумент х: ");
             dArgumentX = CIOUtils.dSafeRead();

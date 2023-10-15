@@ -13,12 +13,12 @@ namespace OmSULab
         {
             get { return menuItems.Count; }
         }
-        public static void Start()
+        public static void Execution()
         {            
             {
                 while (true)
                 {
-                    Menu.Show();
+                    Menu.ShowMenu();
                     menuItems[Menu.iGetMenuValue()].Execute();
                     Console.Write("Нажмите клавишу Enter чтобы вернуться");
                     Console.ReadKey();
@@ -26,7 +26,7 @@ namespace OmSULab
                 }
             }
         }
-        static void Show()
+        static void ShowMenu()
         {
             for (int i = 0; i < menuItems.Count; i++)
             {

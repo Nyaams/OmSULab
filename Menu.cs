@@ -6,46 +6,46 @@ using System.Threading.Tasks;
 
 namespace OmSULab
 {
-    public class Menu
+    static class MenuValue
     {
-        public static void Summon()
+        static List<MenuItemCore> menuItems = new List<MenuItemCore>();
+        public static int MenuItems
         {
-            while (true)
+            get { return menuItems.Count; }
+        }
+        public static void Start()
+        {            
             {
-                switch (MenuValue.iMenuValue())
+                while (true)
                 {
-                    case 0:
-                        Console.WriteLine("Exit");
-                        Environment.Exit(0);
-                        break;
-                    case 1:
-                        Console.Clear();
-                        HelloWorld.Hello();
-                        Console.WriteLine("Нажмите клавишу Enter чтобы вернуться");
-                        Console.ReadLine();
-                        break;
-                    case 2:
-                        Console.Clear();
-                        Console.WriteLine("Вычисление по формуле (y-sqrt(x))/z");
-                        Calculation.dCalculation();
-                        Console.WriteLine("Нажмите клавишу Enter чтобы вернуться");
-                        Console.ReadLine();
-                        break;
-                    case 3:
-                        Console.Clear();
-                        Console.WriteLine("У вас имеется возможность ввести 4 даты.");
-                        FactorialCalculation.dFactorialOutput();
-                        Console.WriteLine("Нажмите клавишу Enter чтобы вернуться");
-                        Console.ReadLine();
-                        break;
-                    default:
-                        Console.Clear();
-                        Console.WriteLine("Данного значения нет в меню.");
-                        Console.WriteLine("Нажмите клавишу Enter чтобы вернуться");
-                        Console.ReadLine();
-                        break;
+                    MenuValue.Show();
+                    menuItems[MenuValue.iGetMenuValue()].Execute();
+                    Console.Write("Нажмите клавишу Enter чтобы вернуться");
+                    Console.ReadKey();
+                    Console.Clear();
                 }
             }
         }
+        static void Show()
+        {
+            for (int i = 0; i < menuItems.Count; i++)
+            {
+                Console.WriteLine(menuItems[i].GetTitle());
+            }
+        }
+        static int iGetMenuValue()
+        {
+            int iMenuValue = CIOUtils.iSafeReadForMenu();
+            while (iMenuValue < 0 || iMenuValue > menuItems.Count)
+            {
+                    Console.Clear();
+                    Console.WriteLine("Пункт меню не найден. Попробуйте еще раз. ");
+                    iMenuValue = CIOUtils.iSafeReadForMenu();
+            }
+            return iMenuValue;
+        }
+        public static void Add(MenuItemCore item) { menuItems.Add(item); }
+        public static void Remove(MenuItemCore item) { menuItems.Remove(item); }
+        public static void Clear() { menuItems.Clear(); }
     }
 }

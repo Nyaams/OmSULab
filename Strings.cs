@@ -17,15 +17,11 @@ namespace OmSULab
         static void task4()
         {
             Console.WriteLine("Введите первую строку: ");
-            string sFirstString = CIOUtils.sSafeRead();
-            string sFirstModifiedString = new string(sFirstString.Reverse().ToArray());
-            string sFirstStringForRegExp = sFirstString;
+            string sFirstString = CIOUtils.sSafeRead();            
             Console.Clear();
 
             Console.WriteLine("Введите вторую строку: ");
             string sSecondString = CIOUtils.sSafeRead();
-            string sSecondStringForReverse =  sSecondString;
-            string sSecondStringForRegExp = sSecondString;
             Console.Clear();
 
             Console.WriteLine("Первая строка: " + sFirstString + "\n" + "Вторая строка: " + sSecondString);
@@ -43,7 +39,9 @@ namespace OmSULab
             sSecondString = sSecondString.Replace("  ", " ");
             sSecondString = sSecondString.ToUpper();
             sSecondString = sSecondString.Trim();
-            
+            string sFirstStringForRegExp = sFirstString;
+            string sSecondStringForRegExp = sSecondString;
+
             if (sFirstString == sSecondString)
             {
                 Console.WriteLine("Совпадают ли они посимвольно с модификациями? - Совпадают."); 
@@ -51,8 +49,10 @@ namespace OmSULab
             else 
             { 
                 Console.WriteLine("Совпадают ли они посимвольно с модификациями? - Не совпадают."); 
-            }            
-            if (sFirstModifiedString == sSecondStringForReverse)
+            }
+
+            string sFirstModifiedString = new string(sFirstString.Reverse().ToArray());
+            if (sFirstModifiedString == sSecondString)
             {
                 Console.WriteLine("Является ли одна строка перевёртышем к другой? - Является.\n");
             }

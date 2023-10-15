@@ -13,9 +13,9 @@ namespace OmSULab
 {
     internal class RecursiveCalculator
     {
-        private static int iLimitDates = 4;
-        private static DateTime[] inputDate = new DateTime[iLimitDates + 1];
-        private static double dDateRequest()
+        static int iLimitDates = 4;
+        static DateTime[] inputDate = new DateTime[iLimitDates + 1];
+        static double dDateRequest()
         {
             for (int i = 0; i < iLimitDates; i++)
             {
@@ -42,7 +42,7 @@ namespace OmSULab
             }
             return 0;
         }
-        private static double dSum = 0;
+        static double dSum = 0;
         public static double dDateCalculation()
         {
             Console.Clear();

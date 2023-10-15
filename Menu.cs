@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace OmSULab
 {
-    static class MenuValue
+    static class Menu
     {
         static List<MenuItemCore> menuItems = new List<MenuItemCore>();
         public static int MenuItems
@@ -18,8 +18,8 @@ namespace OmSULab
             {
                 while (true)
                 {
-                    MenuValue.Show();
-                    menuItems[MenuValue.iGetMenuValue()].Execute();
+                    Menu.Show();
+                    menuItems[Menu.iGetMenuValue()].Execute();
                     Console.Write("Нажмите клавишу Enter чтобы вернуться");
                     Console.ReadKey();
                     Console.Clear();

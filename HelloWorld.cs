@@ -15,10 +15,8 @@ namespace OmSULab
         public override void Execute()
         {
             Console.Clear();
-            Console.WriteLine("Привет Мир!");
-            Console.WriteLine("Hello World!");            
-            Console.WriteLine("Hallo Welt!");
-            Console.WriteLine("Bonjour le monde!");
+            CIOUtils.printfn("Привет Мир!");
+            CIOUtils.printfn("Hello World!");
         }
     }
 }

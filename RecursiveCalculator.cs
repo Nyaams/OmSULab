@@ -18,14 +18,13 @@ namespace OmSULab
         {
             for (int i = 0; i < iLimitDates; i++)
             {
-                Console.Write($"Введите {i + 1} дату в формате (дд.мм.гггг): ");
-                inputDate[i] = CIOUtils.dtSafeRead();
+                CIOUtils.printf($"Введите {i + 1} дату в формате (дд.мм.гггг): ");
+                inputDate[i] = CIOUtils.dtSafeRead();                
             }
-
             while (inputDate[0] > inputDate[1])
             {
                 Console.Clear();
-                Console.WriteLine(inputDate[0].ToShortDateString() + "-" + inputDate[1].ToShortDateString());
+                CIOUtils.printfn(inputDate[0].ToShortDateString() + "-" + inputDate[1].ToShortDateString());
                 Console.Write("Конечная дата не может быть меньше начальной.\n" +
                               "Введите другое значение конечной даты в первом отрезке: ");
                 inputDate[1] = CIOUtils.dtSafeRead();
@@ -34,7 +33,7 @@ namespace OmSULab
             while (inputDate[2] > inputDate[3])
             {
                 Console.Clear();
-                Console.WriteLine(inputDate[2].ToShortDateString() + "-" + inputDate[3].ToShortDateString());
+                CIOUtils.printfn(inputDate[2].ToShortDateString() + "-" + inputDate[3].ToShortDateString());
                 Console.Write("Конечная дата не может быть меньше начальной.\n" +
                               "Введите другое значение конечной даты во втором отрезке: ");
                 inputDate[3] = CIOUtils.dtSafeRead();
@@ -45,16 +44,16 @@ namespace OmSULab
         public static double dDateCalculation()
         {
             Console.Clear();
-            Console.WriteLine("Первый отрезок дат: " + inputDate[0].ToShortDateString() +
+            CIOUtils.printfn("Первый отрезок дат: " + inputDate[0].ToShortDateString() +
                               "-" + inputDate[1].ToShortDateString());
 
-            Console.WriteLine("Второй отрезок дат: " + inputDate[2].ToShortDateString() +
+            CIOUtils.printfn("Второй отрезок дат: " + inputDate[2].ToShortDateString() +
                               "-" + inputDate[3].ToShortDateString());
 
             if (inputDate[2] > inputDate[1] ||
                 inputDate[3] < inputDate[0])
             {
-                Console.WriteLine("Отрезки дат не пересекаются.");
+                CIOUtils.printfn("Отрезки дат не пересекаются.");
                 dSum = 0;
             }
             else if (inputDate[2] > inputDate[0] &&
@@ -85,7 +84,7 @@ namespace OmSULab
 
             while (dSum > 170)
             {
-                Console.WriteLine("Значение аргумента больше 170 и не может быть вычислено за отведенное время.\n" +
+                CIOUtils.printfn("Значение аргумента больше 170 и не может быть вычислено за отведенное время.\n" +
                                   "Введите данные повторно.");
                 return dDateRequest();
 

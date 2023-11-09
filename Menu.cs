@@ -22,7 +22,7 @@ namespace OmSULab
             {
                 Menu.ShowMenu();
                 Items[Menu.iGetMenuValue()].Execute();
-                Console.Write("Нажмите клавишу Enter чтобы вернуться");
+                CIOUtils.printf("Нажмите клавишу Enter чтобы вернуться");
                 Console.ReadKey();
                 Console.Clear();
             }
@@ -31,7 +31,7 @@ namespace OmSULab
         {
             for (int i = 0; i < Items.Count; i++)
             {
-                Console.WriteLine(Items[i].GetTitle());
+                CIOUtils.printfn(Items[i].GetTitle());
             }
         }
         static int iGetMenuValue()
@@ -40,7 +40,7 @@ namespace OmSULab
             while (iMenuValue < 0 || iMenuValue >= Items.Count)
             {
                 Console.Clear();
-                Console.WriteLine("Пункт меню не найден. Попробуйте еще раз.\n");
+                CIOUtils.printfn("Пункт меню не найден. Попробуйте еще раз.\n");
                 ShowMenu();
                 iMenuValue = CIOUtils.iSafeReadForMenu();
             }

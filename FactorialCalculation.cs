@@ -26,9 +26,9 @@ namespace OmSULab
             RecursiveCalculator.dDateMethodsCall();
             var sw = new Stopwatch();
             sw.Start();
-            Console.WriteLine("Factorial(" + RecursiveCalculator.dDateResult() + ") = " + dFactorialCalc(RecursiveCalculator.dDateResult()));
+            CIOUtils.printfn("Factorial(" + RecursiveCalculator.dDateResult() + ") = " + dFactorialCalc(RecursiveCalculator.dDateResult()));
             sw.Stop();
-            Console.WriteLine($"Время потраченное на вычисление факториала: {sw.Elapsed}");
+            CIOUtils.printf($"Время потраченное на вычисление факториала: {sw.Elapsed}");
         }
     }
 }

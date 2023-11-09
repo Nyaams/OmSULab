@@ -66,5 +66,13 @@ namespace OmSULab
             string sRead = Console.ReadLine() ?? String.Empty;
             return sRead;
         }
+        public static void printf(string msg)
+        {
+            Console.Write(msg);
+        }
+        public static void printfn(string msg)
+        {
+            Console.WriteLine(msg);
+        }
     }
 }

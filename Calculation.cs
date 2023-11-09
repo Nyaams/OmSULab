@@ -17,21 +17,21 @@ namespace OmSULab
         static double dArgumentZ;
         static double dCalculationArguments()
         {
-            Console.Write("Введите аргумент х: ");
+            CIOUtils.printfn("Введите аргумент х: ");
             dArgumentX = CIOUtils.dSafeRead();
             while (dArgumentX < 0)
             {
-                Console.Write("Квадратный корень из отрицательных чисел не является вещественным.\n" +
+                CIOUtils.printfn("Квадратный корень из отрицательных чисел не является вещественным.\n" +
                               "Введите новое значение аргумента х: ");
                 dArgumentX = CIOUtils.dSafeRead();
             }
-            Console.Write("Введите аргумент y: ");
+            CIOUtils.printfn("Введите аргумент y: ");
             dArgumentY = CIOUtils.dSafeRead();
-            Console.Write("Введите аргумент z: ");
+            CIOUtils.printfn("Введите аргумент z: ");
             dArgumentZ = CIOUtils.dSafeRead();
             while (dArgumentZ == 0)
             {
-                Console.Write("Деление на 0 невозможно\nВведите новое значение аргумента z: ");
+                CIOUtils.printfn("Деление на 0 невозможно\nВведите новое значение аргумента z: ");
                 dArgumentZ = CIOUtils.dSafeRead();
             }            
             return 0;
@@ -42,7 +42,7 @@ namespace OmSULab
             dCalculationArguments();
             double dResult;
             dResult = (dArgumentY - Math.Sqrt(dArgumentX)) / dArgumentZ;
-            Console.WriteLine("(y-√(x))/z = " + Math.Round(dResult, 3));
+            CIOUtils.printfn("(y-√(x))/z = " + Math.Round(dResult, 3));
         }
     }
 }

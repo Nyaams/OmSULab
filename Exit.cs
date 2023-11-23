@@ -14,7 +14,7 @@ namespace OmSULab
         }
         public override void Execute()
         {
-            Environment.Exit(0);
+            throw new ExitException();
         }
     }
 }

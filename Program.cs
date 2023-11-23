@@ -9,7 +9,7 @@ namespace OmSULab
 {
     internal class Program
     {
-        static void Main(string[] args)
+        public static void Main()
         {
             Menu.Add(new Exit());
             Menu.Add(new HelloWorld());

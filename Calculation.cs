@@ -36,13 +36,27 @@ namespace OmSULab
             }            
             return 0;
         }
+        
+        public static double ArgumentX()
+        {
+        	return dArgumentX;
+        }
+        
+        public static double ArgumentY()
+        {
+        	return dArgumentY;
+        }
+        
+        public static double ArgumentZ()
+        {
+        	return dArgumentZ;
+        }
+        
         public override void Execute()
         {
             Console.Clear();
             dCalculationArguments();
-            double dResult;
-            dResult = (dArgumentY - Math.Sqrt(dArgumentX)) / dArgumentZ;
-            CIOUtils.printfn("(y-√(x))/z = " + Math.Round(dResult, 3));
+            firstFormula.Calc();
         }
     }
 }

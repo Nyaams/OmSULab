@@ -13,22 +13,15 @@ namespace OmSULab
         {
             return "[3] Recursion date";
         }
-        public static double dFactorialCalc(double n)
-        {
-            if (n == 0 || n == 1) 
-                return 1;
-
-            return n * dFactorialCalc(n - 1);
-        }
         public override void Execute()
         {
             Console.Clear();
             RecursiveCalculator.dDateMethodsCall();
             var sw = new Stopwatch();
             sw.Start();
-            CIOUtils.printfn("Factorial(" + RecursiveCalculator.dDateResult() + ") = " + dFactorialCalc(RecursiveCalculator.dDateResult()));
+            secondFormula.Calc();
             sw.Stop();
-            CIOUtils.printf($"Время потраченное на вычисление факториала: {sw.Elapsed}");
+            CIOUtils.printf($"Время потраченное на вычисление факториала: {sw.Elapsed} \n");
         }
     }
 }

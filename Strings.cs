@@ -8,13 +8,9 @@ using System.Text.RegularExpressions;
 
 namespace OmSULab
 {
-    internal class Strings : MenuItemCore
-    {
-        public override string GetTitle()
-        {
-            return "[4] Strings";
-        }
-        static void task3()
+    public class Strings
+    {        
+        public static void task3()
         {
             CIOUtils.printfn("Введите первую строку: ");
             string sFirstString = CIOUtils.sSafeRead();
@@ -129,10 +125,34 @@ namespace OmSULab
             if (Regex.IsMatch(str, sIPAddressPattern)) { return true; }
             throw new ValidationException("Строка не является IP-адресом");
         }
-        public override void Execute()
+        public static string StringToLower(string str1, string str2)
         {
-            Console.Clear();
-            task3();
+            str1 = str1.ToLower();
+            str2 = str2.ToLower();            
+            if(str1 != str2) throw new ValidationException("Строки не совпадают");
+            return str1;
+        }
+        public static string StringRemovingSpaces(string str1, string str2)
+        {
+            str1 = str1.Trim();
+            str2 = str2.Trim();
+            if (str1 != str2) throw new ValidationException("Строки не совпадают");
+            return str1;
+        }
+        public static string StringDuplicateSpaces(string str1, string str2)
+        {
+            str1 = string.Join(" ", str1.Split(new[] { ' ' }, StringSplitOptions.RemoveEmptyEntries));
+            str2 = string.Join(" ", str2.Split(new[] { ' ' }, StringSplitOptions.RemoveEmptyEntries));
+            if (str1 != str2) throw new ValidationException("Строки не совпадают"); ;
+            return str1;
+        }
+        public static string StringReverse(string str1, string str2)
+        {
+            char[] stringArray = str1.ToCharArray();
+            Array.Reverse(stringArray);
+            str1 = new string(stringArray);
+            if (str1 != str2) throw new ValidationException("Строки не совпадают"); ;
+            return str1;
         }
     }
 }

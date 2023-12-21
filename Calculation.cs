@@ -6,17 +6,12 @@ using System.Threading.Tasks;
 
 namespace OmSULab
 {
-    internal class Calculation : MenuItemCore
-    {
-        public override string GetTitle()
+    public class Calculation
+    {        
+        
+        public static double dCalculationArguments()
         {
-            return "[2] Calc: (y-√(x))/z";
-        }
-        static double dArgumentX;
-        static double dArgumentY;
-        static double dArgumentZ;
-        static double dCalculationArguments()
-        {
+            double dArgumentX, dArgumentY, dArgumentZ;
             CIOUtils.printfn("Введите аргумент х: ");
             dArgumentX = CIOUtils.dSafeRead();
             while (dArgumentX < 0)
@@ -33,30 +28,9 @@ namespace OmSULab
             {
                 CIOUtils.printfn("Деление на 0 невозможно\nВведите новое значение аргумента z: ");
                 dArgumentZ = CIOUtils.dSafeRead();
-            }            
+            }
+            firstFormula.Calc(dArgumentX, dArgumentY, dArgumentZ);
             return 0;
-        }
-        
-        public static double ArgumentX()
-        {
-        	return dArgumentX;
-        }
-        
-        public static double ArgumentY()
-        {
-        	return dArgumentY;
-        }
-        
-        public static double ArgumentZ()
-        {
-        	return dArgumentZ;
-        }
-        
-        public override void Execute()
-        {
-            Console.Clear();
-            dCalculationArguments();
-            firstFormula.Calc();
-        }
+        }                  
     }
 }

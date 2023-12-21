@@ -6,13 +6,14 @@ using System.Threading.Tasks;
 
 namespace OmSULab
 {
-	internal class firstFormula : Calculation
+	public class firstFormula : Calculation
 	{
-		public static void Calc()
+		public static double Calc(double ArgX, double ArgY, double ArgZ)
 		{
 			double dResult;
-			dResult = (Calculation.ArgumentY() - Math.Sqrt(Calculation.ArgumentX())) / Calculation.ArgumentZ();
+			dResult = (- Math.Sqrt(ArgX) + ArgY) / ArgZ;
 			CIOUtils.printfn("(y-√(x))/z = " + Math.Round(dResult, 3));
+			return dResult;
 		}
 	}
 }

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace OmSULab
 {
-    static class Menu
+    public static class Menu
     {
         static List<MenuItemCore> Items = new List<MenuItemCore>();
         public static int iMenuItems

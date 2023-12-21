@@ -15,9 +15,13 @@ namespace OmSULab
 
             return n * dFactorialCalc(n - 1);
         }
-		public static void Calc()
+		public static void CalcTest(double dRes)
 		{
-            CIOUtils.printfn("Factorial(" + RecursiveCalculator.dDateResult() + ") = " + dFactorialCalc(RecursiveCalculator.dDateResult()));
+			CIOUtils.printfn("Factorial(" + RecursiveCalculator.outRes() + ") = " + dFactorialCalc(dRes));            
 		}
-	}
+        public static void Calc(double dRes)
+        {
+            CIOUtils.printfn("Factorial(" + RecursiveCalculator.dDateResult() + ") = " + dFactorialCalc(dRes));
+        }
+    }
 }
